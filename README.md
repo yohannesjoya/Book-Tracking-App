@@ -1,9 +1,10 @@
-# Book Tracking Exercise
+
+# Book Tracking App
 
 This repository contains a simple web application for tracking book reading. The application includes both a frontend developed with NextJS and a backend implemented using Python with FastAPI.
 
 
-<img height="260px" src="[https://jolly-donut-0f00f9.netlify.app/motto.jpeg](https://res.cloudinary.com/doew4ampi/image/upload/v1702069392/photo_6023967468780896558_y_wv8gsc.jpg)" width="80%"/>
+<img height="460px" src="https://res.cloudinary.com/doew4ampi/image/upload/v1702069392/photo_6023967468780896558_y_wv8gsc.jpg" width="70%"/>
 
 
 
