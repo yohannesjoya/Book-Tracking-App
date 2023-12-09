@@ -4,13 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from repository.book_repository import BookRepository
 from database.models import Book
-import mysql.connector
 
-db = mysql.connector.connect(
-    user='root', password='root', host='mysql', port="3306", database='db')
-print("DB connected")
-book_repo = BookRepository(db)
-
+book_repo = BookRepository()
 
 app = FastAPI()
 

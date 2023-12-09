@@ -7,6 +7,6 @@ COPY ../backend /app/
 
 RUN pip install -r /app/packages.txt 
 
-
+RUN chmod +x /app/wait-for-it.sh
 
 

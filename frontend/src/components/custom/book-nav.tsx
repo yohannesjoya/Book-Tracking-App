@@ -40,7 +40,7 @@ export const BookTabs = ({ books }: BookTabsProps) => {
               {Array.from({ length: 6 }, (_, index) => (
                 <Skeleton
                   key={index}
-                  className="w-full h-[35px] my-1 bg-slate-200"
+                  className="w-full h-[35px] my-1 bg-slate-200 dark:bg-slate-600"
                 />
               ))}
             </div>
@@ -61,7 +61,7 @@ export const BookTabs = ({ books }: BookTabsProps) => {
             {Array.from({ length: 6 }, (_, index) => (
               <Skeleton
                 key={index}
-                className="w-full h-[35px] my-1 bg-slate-200"
+                className="w-full h-[35px] my-1 bg-slate-200 dark:bg-slate-600"
               />
             ))}
           </div>
@@ -84,7 +84,7 @@ export const BookTabs = ({ books }: BookTabsProps) => {
               {Array.from({ length: 6 }, (_, index) => (
                 <Skeleton
                   key={index}
-                  className="w-full h-[35px] my-1 bg-slate-200"
+                  className="w-full h-[35px] my-1 bg-slate-200 dark:bg-slate-600"
                 />
               ))}
             </div>

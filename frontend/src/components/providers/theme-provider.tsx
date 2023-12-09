@@ -7,11 +7,5 @@ import { type ThemeProviderProps } from "next-themes/dist/types"
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 
 
-const [client, setclient] = useState(false)
-
-useEffect(() => {
-  setclient(true)
-},[])
-
-  return client ? <NextThemesProvider {...props}>{children}</NextThemesProvider> : <>{children}</>
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
 }
