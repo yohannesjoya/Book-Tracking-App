@@ -39,6 +39,10 @@ def get_book(book_id: int):
 def update_book(book_id:int, book: dict):
     return book_repo.update_book(book_id, book)
     
+# Update book status
+@app.put("/books/update/{book_id}")
+def update_book(book_id:int, book: dict):
+    return book_repo.update_book_title(book_id, book)
 # Delete route
 @app.delete("/books/{book_id}")
 def delete_book(book_id: int):

@@ -5,8 +5,12 @@ type BooksState = {
   books: Book[];
   addBook: (book: Book) => void;
   setBooks: (books: Book[]) => void;
-  updateBookStatus: (id:number, new_status: "completed" | "to-read" | "in-progress") => void;
+  updateBookStatus: (
+    id: number,
+    new_status: "completed" | "to-read" | "in-progress"
+  ) => void;
   removeBook: (id: number) => void;
+  updateBookTitle: (id: number, new_title: string) => void;
 };
 
 const useBooksStore = create<BooksState>((set) => ({
@@ -15,15 +19,27 @@ const useBooksStore = create<BooksState>((set) => ({
   addBook: (book) => set((state) => ({ books: [book, ...state.books] })),
   updateBookStatus: (id: number, newStatus) => {
     set((state) => {
-        const book = state.books.find((book) => book.id === id);
-        if (book) {
-            book.status = newStatus;
-        }
-        return { books: [...state.books] };
+      const book = state.books.find((book) => book.id === id);
+      if (book) {
+        book.status = newStatus;
+      }
+      return { books: [...state.books] };
     });
   },
   removeBook: (id) =>
     set((state) => ({ books: state.books.filter((book) => book.id !== id) })),
+
+  updateBookTitle: (id: number, new_title: string) => {
+    set((state) => {
+      const book = state.books.find((book) => book.id === id);
+
+      if (book) {
+        book.title = new_title;
+      }
+
+      return { books: [...state.books] };
+    });
+  },
 }));
 
 export default useBooksStore;

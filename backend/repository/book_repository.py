@@ -14,7 +14,7 @@ class BookRepository:
         # self.db.commit()
 
     def create_book(self, book: Book):
-        db = mysql.connector.connect(user='root', password='YOHANNESdesta1@', host='mysql', port="3306", database='db')
+        db = mysql.connector.connect(user='root', password='YOHANNESdesta1@', host='localhost', port="3306", database='db')
         cursor = db.cursor()
         # Create book in the database
         
@@ -28,7 +28,7 @@ class BookRepository:
 
 
     def get_books(self):
-        db = mysql.connector.connect(user='root', password='YOHANNESdesta1@', host='mysql', port="3306", database='db')
+        db = mysql.connector.connect(user='root', password='YOHANNESdesta1@', host='localhost', port="3306", database='db')
         cursor = db.cursor()
         # Get all books from the database
         # get the books as dictionaries
@@ -41,7 +41,7 @@ class BookRepository:
     def get_book(self, book_id: int):
         # Get a book with the di
         
-        db = mysql.connector.connect(user='root', password='YOHANNESdesta1@', host='mysql', port="3306", database='db')
+        db = mysql.connector.connect(user='root', password='YOHANNESdesta1@', host='localhost', port="3306", database='db')
         cursor = db.cursor()
         res = cursor.execute(f"SELECT * FROM books WHERE id = ('{book_id}')")
         book = cursor.fetchone()
@@ -52,7 +52,7 @@ class BookRepository:
 
     def update_book(self, book_id:int, book: dict):
         # Update book in the database
-        db = mysql.connector.connect(user='root', password='YOHANNESdesta1@', host='mysql', port="3306", database='db')
+        db = mysql.connector.connect(user='root', password='YOHANNESdesta1@', host='localhost', port="3306", database='db')
         cursor = db.cursor()
         new_status = book["status"]
         cursor.execute(f"UPDATE books SET status = ('{new_status}') WHERE id = ('{book_id}')")
@@ -60,9 +60,19 @@ class BookRepository:
         db.close()
         # return the book
         return {"message": "Book updated successfully"}
+    def update_book_title(self, book_id:int, book: dict):
+        # Update book in the database
+        db = mysql.connector.connect(user='root', password='YOHANNESdesta1@', host='localhost', port="3306", database='db')
+        cursor = db.cursor()
+        new_title = book["title"]
+        cursor.execute(f"UPDATE books SET title = ('{new_title}') WHERE id = ('{book_id}')")
+        db.commit()
+        db.close()
+        # return the book
+        return {"message": "Book updated successfully"}
 
     def delete_book(self, book_id: int):
-        db = mysql.connector.connect(user='root', password='YOHANNESdesta1@', host='mysql', port="3306", database='db')
+        db = mysql.connector.connect(user='root', password='YOHANNESdesta1@', host='localhost', port="3306", database='db')
         cursor = db.cursor()
         # Delete book from the database
         cursor.execute(f"DELETE FROM books WHERE id = ('{book_id}')")
